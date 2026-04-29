@@ -2,8 +2,8 @@
 
 > 10% Noise. 90% Signal.
 
-M.Sc. Bioinformatics · Julius-Maximilians-Universität Würzburg
-Python · Reproducible pipelines · From genome to mind
+M.Sc. Bioinformatics · Julius-Maximilians-Universität Würzburg<br>
+Python · Reproducible pipelines · From genome to mind<br>
 Open to opportunities in Germany & beyond
 
 ---

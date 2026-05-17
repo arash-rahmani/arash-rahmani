@@ -1,4 +1,4 @@
-# Arash Rahmani — Computational Biologist
+# Arash Rahmani · Computational Biologist
 > 10% Noise. 90% Signal.
 M.Sc. Bioinformatics · Julius-Maximilians-Universität Würzburg<br>
 Python · Reproducible pipelines · From genome to mind<br>
@@ -8,7 +8,7 @@ Open to opportunities in Germany & beyond
 
 ## What I build
 
-I write Python pipelines that turn complex biological and behavioral data into reproducible, auditable results — without the chaos that usually comes with academic code.
+I write Python pipelines that turn complex biological and behavioral data into reproducible, auditable results, without the chaos that usually comes with academic code.
 
 The same architectural philosophy applies across both domains: config-driven, schema-validated, pytest-tested, modular. The data changes. The rigor doesn't.
 
@@ -22,13 +22,13 @@ Classification of psychiatric conditions from wrist-worn motor activity.
 OBF-Psychiatric dataset · 76 participants · 3-class and binary framing
 
 - Participant-level GroupKFold CV · bootstrap 95% CIs · 112 pytest tests
-- Binary control-vs-patient: macro-F1 **0.849** (95% CI 0.761–0.920) — combined features, XGBoost
-- 3-class control/depression/schizophrenia: macro-F1 **0.753** (95% CI 0.645–0.841) — combined features, logistic regression
+- Binary control-vs-patient with combined features (XGBoost): macro-F1 **0.849** (95% CI 0.761–0.920)
+- 3-class control/depression/schizophrenia with combined features (logistic regression): macro-F1 **0.753** (95% CI 0.645–0.841)
 - Custom temporal feature extraction from raw actigraphy: interdaily stability, intradaily variability, L5/M10, cosinor parameters, Cole-Kripke sleep metrics
 - Logistic regression · XGBoost · SHAP feature attribution
 - Config-driven · schema-validated · modular
 
-**Scientific finding:** Temporal and circadian features alone (F1 0.699) outperform distributional features alone (F1 0.595) on 3-class psychiatric classification — meaning rhythmic structure carries disorder-specific information that activity volume statistics do not. Combined features push 3-class discrimination from 0.595 to **0.753**, a +0.158 improvement over the distributional baseline. The engineering choice of *which features to compute* moved the needle, not model complexity. SHAP attribution on the combined classifier recovers a textbook chronobiological finding: cosinor acrophase (delayed activity peak) is the dominant feature distinguishing depression, while schizophrenia shows the opposite acrophase direction — distinct circadian signatures across disorders. Paper in preparation.
+**Scientific finding:** Temporal and circadian features alone (F1 0.699) outperform distributional features alone (F1 0.595) on 3-class psychiatric classification. Rhythmic structure carries disorder-specific information that activity volume statistics do not. Combined features push 3-class discrimination from 0.595 to **0.753**, a +0.158 improvement over the distributional baseline. The engineering choice of *which features to compute* moved the needle, not model complexity. SHAP attribution on the combined classifier recovers a textbook chronobiological finding: cosinor acrophase (delayed activity peak) is the dominant feature distinguishing depression, while schizophrenia shows the opposite acrophase direction. Distinct circadian signatures across disorders. Paper in preparation.
 
 `Python` `scikit-learn` `XGBoost` `SHAP` `pandas` `NumPy` `pytest`
 
@@ -49,9 +49,9 @@ Validated on *Fagus sylvatica* transcriptomics (carbon harvesting, CO₂ conditi
 
 ## The bridge
 
-These two pipelines are not coincidental. Genomic data sits inside tight evolutionary corridors — conditions separate cleanly, signals are crisp. Behavioral data is biology unconstrained — humans on medication, in wards, having lives. The engineering philosophy transfers. The interpretation changes.
+These two pipelines are not coincidental. Genomic data sits inside tight evolutionary corridors: conditions separate cleanly, signals are crisp. Behavioral data is biology unconstrained: humans on medication, in wards, having lives. The engineering philosophy transfers. The interpretation changes.
 
-What started as distributional motor classification — strong on binary, weak on 3-class — became a methodological question: *can the right features recover disorder-specific signal?* They can. Temporal and circadian structure separates depression from schizophrenia in a way activity volume statistics cannot. Engineering effort pays in discovery.
+What started as distributional motor classification (strong on binary, weak on 3-class) became a methodological question: *can the right features recover disorder-specific signal?* They can. Temporal and circadian structure separates depression from schizophrenia in a way activity volume statistics cannot. Engineering effort pays in discovery.
 
 ---
 

@@ -19,25 +19,26 @@ The same architectural philosophy applies across both domains: config-driven, sc
 ## Pipelines
 
 ### [obf-psychiatric-pipeline](https://github.com/arash-rahmani/obf-psychiatric-pipeline) · 2026
+
 Classification of psychiatric conditions from wrist-worn motor activity.
+OBF-Psychiatric dataset · 76 participants · 3-class and binary framing
 
-OBF-Psychiatric dataset · 77 participants · 3-class and binary framing
-
-- Participant-level GroupKFold cross-validation · bootstrap 95% CIs
-- Binary control-vs-patient: macro-F1 **0.80** (95% CI 0.70–0.88)
-- 3-class control/depression/schizophrenia: macro-F1 0.60 (95% CI 0.48–0.71)
+- Participant-level GroupKFold CV · bootstrap 95% CIs · 112 pytest tests
+- Binary control-vs-patient: macro-F1 **0.849** (95% CI 0.761–0.920) — combined features, XGBoost
+- 3-class control/depression/schizophrenia: macro-F1 **0.753** (95% CI 0.645–0.841) — combined features, logistic regression
+- Custom temporal feature extraction from raw actigraphy: interdaily stability, intradaily variability, L5/M10, cosinor parameters, Cole-Kripke sleep metrics
 - Logistic regression · XGBoost · SHAP feature attribution
-- Config-driven · schema-validated · 17+ pytest tests
+- Config-driven · schema-validated · modular
 
-**Finding:** distributional motor features reliably separate inpatients from healthy controls but cannot distinguish depression from schizophrenia — a shared low-activity signature that reflects inpatient status and medication effects more than disorder-specific behavior. Temporal/circadian features are the next experiment.
+**Scientific finding:** Temporal and circadian features alone (F1 0.699) outperform distributional features alone (F1 0.595) on 3-class psychiatric classification — meaning rhythmic structure carries disorder-specific information that activity volume statistics do not. Combined features push 3-class discrimination from 0.595 to **0.753**, a +0.158 improvement over the distributional baseline. The engineering choice of *which features to compute* moved the needle, not model complexity. Paper in preparation.
 
 `Python` `scikit-learn` `XGBoost` `SHAP` `pandas` `NumPy` `pytest`
 
 ---
 
 ### [rnaseq-python-pipeline](https://github.com/arash-rahmani/rnaseq-python-pipeline) · 2025
-Reproducible RNA-seq differential expression and pathway enrichment in Python.
 
+Reproducible RNA-seq differential expression and pathway enrichment in Python.
 Validated on *Fagus sylvatica* transcriptomics (carbon harvesting, CO₂ conditions)
 
 - End-to-end: raw counts → QC → differential expression → GSEA pathway enrichment
@@ -52,21 +53,8 @@ Validated on *Fagus sylvatica* transcriptomics (carbon harvesting, CO₂ conditi
 
 These two pipelines are not coincidental. Genomic data sits inside tight evolutionary corridors — conditions separate cleanly, signals are crisp. Behavioral data is biology unconstrained — humans on medication, in wards, having lives. The engineering philosophy transfers. The interpretation changes.
 
-The next iteration computes temporal features from raw actigraphy — interdaily stability, intradaily variability, cosinor amplitude — to test whether rhythmic structure can disambiguate what distributional summaries cannot.
+What started as distributional motor classification — strong on binary, weak on 3-class — became a methodological investigation: *can the right features recover disorder-specific signal?* The answer was yes. Temporal and circadian features carry information that activity volume statistics do not, and that information separates depression from schizophrenia in a way the original feature set could not. Engineering effort pays in discovery.
 
 ---
 
 ## Stack
-
-```
-Languages:   Python · R · Bash
-ML:          scikit-learn · XGBoost · SHAP
-Bio:         PyDESeq2 · gseapy · HISAT2 · StringTie · DESeq2 · clusterProfiler
-Practices:   pytest · Git · YAML config-driven design · schema validation · bootstrap CI
-```
-
----
-
-## Connect
-
-[LinkedIn](https://linkedin.com/in/arash-rahmani-544684242) · Würzburg, Germany

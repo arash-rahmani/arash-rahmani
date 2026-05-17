@@ -58,3 +58,15 @@ What started as distributional motor classification — strong on binary, weak o
 ---
 
 ## Stack
+
+Languages:   Python · R · Bash
+ML:          scikit-learn · XGBoost · SHAP
+Bio:         PyDESeq2 · gseapy · HISAT2 · StringTie · DESeq2 · clusterProfiler
+Signal:      cosinor analysis · Cole-Kripke sleep scoring · circadian rhythm features
+Practices:   pytest · Git · YAML config-driven design · schema validation · bootstrap CI
+
+---
+
+## Connect
+
+[LinkedIn](https://linkedin.com/in/arash-rahmani-544684242) · Würzburg, Germany

@@ -1,72 +1,36 @@
-# Arash Rahmani · Computational Biologist
-> 10% Noise. 90% Signal.
-M.Sc. Bioinformatics · Julius-Maximilians-Universität Würzburg<br>
-Python · Reproducible pipelines · From genome to mind<br>
-Open to opportunities in Germany & beyond
+SHAP independently recovered delayed circadian phase as the dominant depression feature from wrist-worn actigraphy, without clinical annotations. The engineering recovered the biology.
 
 ---
 
-## What I build
+**Arash Rahmani** · M.Sc. Bioinformatics, Julius-Maximilians-Universität Würzburg
 
-I write Python pipelines that turn complex biological and behavioral data into reproducible, auditable results, without the chaos that usually comes with academic code.
-
-The same architectural philosophy applies across both domains: config-driven, schema-validated, pytest-tested, modular. The data changes. The rigor doesn't.
+Repositioning from RNA-seq pipelines to computational psychiatry and digital health. The engineering philosophy that produces reproducible genomics workflows transfers cleanly to behavioral data: config-driven, schema-validated, participant-aware, pytest-tested. The data changes; the rigor does not.
 
 ---
 
-## Pipelines
+### Computational Psychiatry
 
-### [obf-psychiatric-pipeline](https://github.com/arash-rahmani/obf-psychiatric-pipeline) · 2026
+**[obf-psychiatric-pipeline](https://github.com/arash-rahmani/obf-psychiatric-pipeline)**
 
-Classification of psychiatric conditions from wrist-worn motor activity.
-OBF-Psychiatric dataset · 76 participants · 3-class and binary framing
+Classification of psychiatric conditions from wrist-worn motor activity (n = 76, inpatient cohorts). A double dissociation: circadian timing separates disorders, activity volume separates patients from controls.
 
-- Participant-level GroupKFold CV · bootstrap 95% CIs · 112 pytest tests
-- Binary control-vs-patient with combined features (XGBoost): macro-F1 **0.849** (95% CI 0.761–0.920)
-- 3-class control/depression/schizophrenia with combined features (logistic regression): macro-F1 **0.753** (95% CI 0.645–0.841)
-- Custom temporal feature extraction from raw actigraphy: interdaily stability, intradaily variability, L5/M10, cosinor parameters, Cole-Kripke sleep metrics
-- Logistic regression · XGBoost · SHAP feature attribution
-- Config-driven · schema-validated · modular
+Macro-F1 **0.808** binary · **0.691** 3-class · paired gain **+0.109** over distributional features alone (20/20 repetitions, committed fold fixtures). Preprint in preparation.
 
-**Scientific finding:** Temporal and circadian features alone (F1 0.699) outperform distributional features alone (F1 0.595) on 3-class psychiatric classification. Rhythmic structure carries disorder-specific information that activity volume statistics do not. Combined features push 3-class discrimination from 0.595 to **0.753**, a +0.158 improvement over the distributional baseline. The engineering choice of *which features to compute* moved the needle, not model complexity. SHAP attribution on the combined classifier recovers a textbook chronobiological finding: cosinor acrophase (delayed activity peak) is the dominant feature distinguishing depression, while schizophrenia shows the opposite acrophase direction. Distinct circadian signatures across disorders. Paper in preparation.
-
-`Python` `scikit-learn` `XGBoost` `SHAP` `pandas` `NumPy` `pytest`
+`Python` · `scikit-learn` · `XGBoost` · `SHAP` · `pytest` · 160 tests passing
 
 ---
 
-### [rnaseq-python-pipeline](https://github.com/arash-rahmani/rnaseq-python-pipeline) · 2025
+### Genomics
 
-Reproducible RNA-seq differential expression and pathway enrichment in Python.
-Validated on *Fagus sylvatica* transcriptomics (carbon harvesting, CO₂ conditions)
+**[rnaseq-python-pipeline](https://github.com/arash-rahmani/rnaseq-python-pipeline)**
 
-- End-to-end: raw counts → QC → differential expression → GSEA pathway enrichment
-- Config-driven · pytest-tested · modular src-layout package
-- PyDESeq2 for differential expression · gseapy for enrichment
+Reproducible RNA-seq differential expression and pathway enrichment in Python. Validated on *Fagus sylvatica* transcriptomics under varying CO₂ conditions. Config-driven, src-layout, modular.
 
-`Python` `PyDESeq2` `gseapy` `pandas` `NumPy` `matplotlib` `pytest`
+`Python` · `PyDESeq2` · `gseapy` · `pandas` · `NumPy`
 
 ---
 
-## The bridge
+Open to computational psychiatry, digital phenotyping, and digital health ML roles.
+Germany · EU · UK · Switzerland
 
-These two pipelines are not coincidental. Genomic data sits inside tight evolutionary corridors: conditions separate cleanly, signals are crisp. Behavioral data is biology unconstrained: humans on medication, in wards, having lives. The engineering philosophy transfers. The interpretation changes.
-
-What started as distributional motor classification (strong on binary, weak on 3-class) became a methodological question: *can the right features recover disorder-specific signal?* They can. Temporal and circadian structure separates depression from schizophrenia in a way activity volume statistics cannot. Engineering effort pays in discovery.
-
----
-
-## Stack
-
-```
-Languages:   Python · R · Bash
-ML:          scikit-learn · XGBoost · SHAP
-Bio:         PyDESeq2 · gseapy · HISAT2 · StringTie · DESeq2 · clusterProfiler
-Signal:      cosinor analysis · Cole-Kripke sleep scoring · circadian rhythm features
-Practices:   pytest · Git · YAML config-driven design · schema validation · bootstrap CI
-```
-
----
-
-## Connect
-
-[LinkedIn](https://linkedin.com/in/arash-rahmani-544684242) · Würzburg, Germany
+[LinkedIn](https://linkedin.com/in/arash-rahmani-544684242)
